@@ -1,3 +1,5 @@
+//WA T-T
+
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("unroll-loops,no-stack-protector")
@@ -7,10 +9,7 @@ using namespace std;
 #define sor(x) sort(all(x))
 #define rsor(x) sort(rall(x))
 #define vt vector
-#define fast_io                  \
-    ios::sync_with_stdio(false); \
-    cin.tie(nullptr);            \
-    cout.tie(nullptr);
+#define fast_io ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 #define cel(x) cout << x << '\n'
 #define cht(x) cout << x << ' '
 using ll = long long;

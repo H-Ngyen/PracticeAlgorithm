@@ -1,4 +1,3 @@
-//rate: 900
 //tag: greedy, math, 
 //desc: 
 //  bài toán kiểm tra chuỗi có k cặp đối xứng hay không? 

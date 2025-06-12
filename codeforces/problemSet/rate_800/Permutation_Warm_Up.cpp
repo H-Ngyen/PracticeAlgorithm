@@ -1,4 +1,3 @@
-//rate: 800
 //tag: combinatorics, greedy, math
 //desc:
 //  Cho số n (1 <= n <= 500), tính số giá trị khác nhau của hàm f(p) = |p_i - i| trên tất cả hoán vị p của {1, 2,..., n}.
