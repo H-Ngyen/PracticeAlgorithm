@@ -48,6 +48,10 @@ void solve(){
     }
 }
 
+void sol(){
+    
+}
+
 int main()
 {
     fast_io;

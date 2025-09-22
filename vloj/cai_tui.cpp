@@ -28,61 +28,33 @@ const int MAX_N = 1e5 + 5;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
+//bài toán cái túi
+void solve(){
+    ll n, W; cin >> n >> W;
+    vt<int> v(n), w(n), gt(n), dv(n);
 
-void test(){
-    pair<int, string> p = {1, "hello"};
-    cout << p;
-}
+    for (int i = 0; i < n; i++) cin >> w[i] >> v[i];
 
-//arr = {1, 4, 5}
-//arr[i] * arr[i + 1] < 0 
-//1 * -4 = -
-//1 *  1 = +
-void solve2(){
-    int n; cin >> n; 
-    vt<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    
-    bool check = 1;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if(a[i] * a[i + 1] >= 0){
-            check = 0;
-            break;
-        }
-    }
-    cel(( check ? "YES" : "NO"));
-}
-
-void solve()
-{
-    int n; cin >> n;
-    ll res = 0;
-    vt<string> b(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> b[i];
-        (b[i][1] == '+' ? res++ : res--);
+        gt[i] = 0;
+        dv[i] = v[i]/w[i];
     }
-    cel(res);
+    
+    ll W_current = 0;
+    int i = 0;
+    while (W_current < W && i < n)
+    {
+        gt[i] = min(W - W_current, w[i]);
+        W_current += min(W - W_current, w[i]);
+        i++;
+    }
 }
-
-void sol(){
-    int k, n, w; cin >> k >> n >> w;    
-    for (int i = 1; i <= w; i++) n -= i*k;
-    cel((n < 0? -n : 0));
-}   
-
-void sol2(){
-    int k, n, w; cin >> k >> n >> w;    
-    ll total_cost = k * w * (w + 1) / 2;
-    cel((n < total_cost ? total_cost - n : 0));
-}   
 
 int main()
 {
     fast_io;
-    test();
-
+    solve();
+    
     return 0;
 }

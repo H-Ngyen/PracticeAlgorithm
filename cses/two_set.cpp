@@ -29,60 +29,55 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-void test(){
-    pair<int, string> p = {1, "hello"};
-    cout << p;
-}
-
-//arr = {1, 4, 5}
-//arr[i] * arr[i + 1] < 0 
-//1 * -4 = -
-//1 *  1 = +
-void solve2(){
-    int n; cin >> n; 
-    vt<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    
-    bool check = 1;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if(a[i] * a[i + 1] >= 0){
-            check = 0;
-            break;
-        }
-    }
-    cel(( check ? "YES" : "NO"));
-}
-
 void solve()
 {
     int n; cin >> n;
-    ll res = 0;
-    vt<string> b(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> b[i];
-        (b[i][1] == '+' ? res++ : res--);
-    }
-    cel(res);
+    ll total_num = 1ll * n *(n + 1)/2;
+        
+    if(total_num % 2 != 0) cel("NO");
+    else{
+        cel("YES");
+
+        int max_element = n;
+        ll set1_sum = 0;
+
+        vt<int> set1, set2;
+        vt<int> vis(n + 1 , 0);
+
+        while (set1_sum < total_num / 2){
+            ll remaining_sum = total_num / 2 - set1_sum;
+            
+            if(remaining_sum > max_element){
+                set1.push_back(max_element);
+                set1_sum += max_element;
+                vis[max_element] = 1;
+                max_element--; 
+            }
+            else{
+                set1.push_back(remaining_sum);
+                vis[remaining_sum] = 1;
+                set1_sum = total_num / 2;
+            }
+        }
+
+        for (int i = 1; i <= n; i++)
+            if(vis[i] != 1) set2.push_back(i);
+
+        cel(sz(set1));
+        for (auto i:set1) cht(i);
+        
+        cout << endl;
+        
+        cel(sz(set2));
+        for (auto i:set2) cht(i);
+    }      
 }
 
-void sol(){
-    int k, n, w; cin >> k >> n >> w;    
-    for (int i = 1; i <= w; i++) n -= i*k;
-    cel((n < 0? -n : 0));
-}   
-
-void sol2(){
-    int k, n, w; cin >> k >> n >> w;    
-    ll total_cost = k * w * (w + 1) / 2;
-    cel((n < total_cost ? total_cost - n : 0));
-}   
 
 int main()
 {
     fast_io;
-    test();
+    solve();
 
     return 0;
 }

@@ -29,60 +29,33 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-void test(){
-    pair<int, string> p = {1, "hello"};
-    cout << p;
+long long power(long long a, long long b){
+    long long ans = 1;
+    while (b) {
+        if(b & 1) ans = ans * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return ans;
 }
 
-//arr = {1, 4, 5}
-//arr[i] * arr[i + 1] < 0 
-//1 * -4 = -
-//1 *  1 = +
-void solve2(){
-    int n; cin >> n; 
-    vt<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
+int solve(string sa, string sb) {
+    long long a = 0, b = 0;
+
+    for (char c : sa) 
+        a = (a * 10 + (c - '0')) % MOD;
     
-    bool check = 1;
-    for (int i = 0; i < n - 1; i++)
-    {
-        if(a[i] * a[i + 1] >= 0){
-            check = 0;
-            break;
-        }
-    }
-    cel(( check ? "YES" : "NO"));
+    for (char c : sb) 
+        b = (b * 10 + (c - '0')) % (MOD - 1);
+    
+    return power(a, b);
 }
-
-void solve()
-{
-    int n; cin >> n;
-    ll res = 0;
-    vt<string> b(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> b[i];
-        (b[i][1] == '+' ? res++ : res--);
-    }
-    cel(res);
-}
-
-void sol(){
-    int k, n, w; cin >> k >> n >> w;    
-    for (int i = 1; i <= w; i++) n -= i*k;
-    cel((n < 0? -n : 0));
-}   
-
-void sol2(){
-    int k, n, w; cin >> k >> n >> w;    
-    ll total_cost = k * w * (w + 1) / 2;
-    cel((n < total_cost ? total_cost - n : 0));
-}   
 
 int main()
 {
     fast_io;
-    test();
-
+    string sa, sb; cin >> sa >> sb;
+    cel(solve(sa, sb));
+    
     return 0;
 }
