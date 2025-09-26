@@ -28,23 +28,11 @@ void solve()
             char first = s[0];
             char last = s[sz(s) - 1];
             int abb = sz(s) - 2;
-            string res = string(1, first) + to_string(abb) + string(1, last);
+            string res = first + to_string(abb) + last;
             cel(res);
         }
     }
 }
- 
-void sol(){
-    int k, n, w; cin >> k >> n >> w;    
-    for (int i = 1; i <= w; i++) n -= i*k;
-    cel((n < 0? -n : 0));
-}   
- 
-void sol2(){
-    int k, n, w; cin >> k >> n >> w;    
-    ll total_cost = k * w * (w + 1) / 2;
-    cel((n < total_cost ? total_cost - n : 0));
-}   
  
 int main()
 {

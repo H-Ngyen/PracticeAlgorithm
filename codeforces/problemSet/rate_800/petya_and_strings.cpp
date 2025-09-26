@@ -1,5 +1,3 @@
-//tag: greedy, dp
-//desc: như bài chia đồng xu (bài toán kinh điển greedy)
 #include <bits/stdc++.h>
 using namespace std;
 #pragma GCC optimize("unroll-loops,no-stack-protector")
@@ -8,12 +6,11 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define sor(x) sort(all(x))
 #define rsor(x) sort(rall(x))
-#define vt vector
 #define fast_io ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
-
+ 
 template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
@@ -23,44 +20,36 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #else
 #define dbg(...)
 #endif
-
+ 
 const int MAX_N = 1e5 + 5;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-void solve(){
-    int n; cin >> n;
-    int arr[5] = {1,5,10,20,100};
-    int count = 0;
-    for (int i = 4; i >= 0 ; i--)
-    {
-        while(n - arr[i] >= 0) 
-        {
-            n-=arr[i];
-            count++;
-        }
-        dbg(n, arr[i]);
-        if(n == 0) break;
-    }
-    cout << count << endl;
+int compare_m(string a, string b){
+    if(a < b) 
+        return -1;
+    return a > b;
+}
+
+void solve() {
+    string s1, s2; cin >> s1 >> s2;
+    for (char &x : s1) x = tolower(x);
+    for (char &x : s2) x = tolower(x);
+    cout << compare_m(s1, s2) << endl;
 }
 
 void solve2(){
-    int n; cin >> n;
-    int arr[5] = {1,5,10,20,100};
-    int count = 0;
-    for (int i = 4; i >= 0  ; i--) {
-        count += n / arr[i];
-        n %= arr[i];
-    }
-    cout << count << endl;
+    string s1, s2; cin >> s1 >> s2;
+    for (char &x : s1) x = tolower(x);
+    for (char &x : s2) x = tolower(x);
+    cout << s1.compare(s2) << endl;
 }
 
 int main()
 {
     fast_io;
-    solve2();
-
+    solve();
+    
     return 0;
 }

@@ -39,7 +39,8 @@ long long power(long long a, long long b){
     return ans;
 }
 
-int solve(string sa, string sb) {
+void solve() {
+    string sa, sb; cin >> sa >> sb;
     long long a = 0, b = 0;
 
     for (char c : sa) 
@@ -48,14 +49,13 @@ int solve(string sa, string sb) {
     for (char c : sb) 
         b = (b * 10 + (c - '0')) % (MOD - 1);
     
-    return power(a, b);
+    cel(power(a, b));
 }
 
 int main()
 {
     fast_io;
-    string sa, sb; cin >> sa >> sb;
-    cel(solve(sa, sb));
+    solve();
     
     return 0;
 }
