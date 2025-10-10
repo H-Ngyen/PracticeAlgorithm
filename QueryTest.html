@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>LOD Demo - Wikidata Query</title>
+</head>
+<body>
+  <h1>📚 Demo SPARQL Query từ Wikidata</h1>
+  <button onclick="runQuery()">Chạy Query</button>
+
+  <script>
+    async function runQuery() {
+      const endpointUrl = "https://query.wikidata.org/sparql";
+      const sparqlQuery = `
+      SELECT ?book ?bookLabel ?author ?authorLabel
+      WHERE {
+        ?book wdt:P31 wd:Q571;
+              wdt:P50 ?author;
+              wdt:P921 wd:Q21198.   # chủ đề = Computer Science
+        SERVICE wikibase:label { bd:serviceParam wikibase:language "en,vi". }
+      }
+      LIMIT 5
+      `;
+
+      const url = endpointUrl + "?query=" + encodeURIComponent(sparqlQuery);
+      const headers = {
+        "Accept": "application/sparql-results+json",
+        "User-Agent": "LOD-Demo/1.0 (https://example.com)"
+      };
+
+      console.log("🔎 Query gửi đi:", url);
+
+      try {
+        const response = await fetch(url, { headers });
+        console.log("📡 Status:", response.status, response.statusText);
+
+        if (!response.ok) throw new Error("HTTP error " + response.status);
+        const data = await response.json();
+
+        // Log toàn bộ JSON
+        console.log("📦 Dữ liệu JSON trả về:");
+        console.log(JSON.stringify(data, null, 2));
+
+        // Nếu muốn duyệt từng binding
+        data.results.bindings.forEach((row, i) => {
+          console.log(`➡️  Row ${i + 1}:`, row);
+        });
+
+      } catch (err) {
+        console.error("❌ Lỗi:", err);
+      }
+    }
+  </script>
+</body>
+</html>
