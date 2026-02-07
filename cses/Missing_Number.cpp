@@ -6,10 +6,7 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define sor(x) sort(all(x))
 #define rsor(x) sort(rall(x))
-#define vt vector
 #define fast_io ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-#define cel(x) cout << x << '\n'
-#define cht(x) cout << x << ' '
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -31,21 +28,32 @@ const ld EPS = 1e-9;
 
 void solve(){
     ll n; cin >> n;
-    vt<int> v(n - 1);
+    vector<int> v(n - 1);
     for (int i = 0; i < n - 1; i++) cin >> v[i];
     sor(v);
     for (int i = 1; i <= n; i++)
     {
         if(v[i - 1] != i) {
-            cel(i);
+            cout << i << endl;
             break;
         }
     }
 }
 
+void solve2() {
+    ll n; cin >> n;
+    vector<ll> v(n - 1);
+    ll res = 0;
+    for(ll &x:v){
+        cin >> x;
+        res += x;
+    } 
+    cout << 1LL * n * (n + 1) / 2 - res  << endl;
+}
+
 int main()
 {
     fast_io;
-    solve();
+    solve2();
     return 0;
 }

@@ -1,0 +1,41 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "geeksforgeeks", "geeksforgeeks", "{60E9C617-66F5-E989-E76B-FF430CA56E69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "csharp", "csharp", "{E83E9A55-84ED-8DF7-AA2B-CC13BA6A48FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fundamental", "fundamental", "{D921DA21-6E6A-4C2C-410A-74D7CBDA5A9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LogicBuildingProblems", "LogicBuildingProblems", "{B163E181-F9F0-3109-3D72-0AB88A2E60A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "basic", "basic", "{7792E1E5-A576-07A9-1B1D-04DC0A1DB9F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SumOfNatural", "geeksforgeeks\csharp\fundamental\LogicBuildingProblems\basic\SumOfNatural\SumOfNatural.csproj", "{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E83E9A55-84ED-8DF7-AA2B-CC13BA6A48FC} = {60E9C617-66F5-E989-E76B-FF430CA56E69}
+		{D921DA21-6E6A-4C2C-410A-74D7CBDA5A9C} = {E83E9A55-84ED-8DF7-AA2B-CC13BA6A48FC}
+		{B163E181-F9F0-3109-3D72-0AB88A2E60A5} = {D921DA21-6E6A-4C2C-410A-74D7CBDA5A9C}
+		{7792E1E5-A576-07A9-1B1D-04DC0A1DB9F4} = {B163E181-F9F0-3109-3D72-0AB88A2E60A5}
+		{EAFD4D58-51D9-E34F-8BEB-D7868881B9D8} = {7792E1E5-A576-07A9-1B1D-04DC0A1DB9F4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D54D3660-BCF3-4DBD-8190-2DF4790BB1A2}
+	EndGlobalSection
+EndGlobal

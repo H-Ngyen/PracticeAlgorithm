@@ -1,6 +1,7 @@
+#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector")
+#pragma GCC target("avx2,tune=native")
 #include <bits/stdc++.h>
 using namespace std;
-#pragma GCC optimize("unroll-loops,no-stack-protector")
 #define sz(x) int((x).size())
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()

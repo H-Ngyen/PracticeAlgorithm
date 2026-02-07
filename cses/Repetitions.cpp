@@ -31,15 +31,12 @@ const ld EPS = 1e-9;
 
 void solve(){
     string s; cin >> s;
-    int res;
-    int temp = 1; 
-    for (int i = 0; i < sz(s); i++)
-    {
-        if(s[i] != s[i + 1]){
-            if(temp > res) res = temp;
-            temp = 1;
-        }
-        else temp++;
+    int res = 1;
+    int curr = 1; 
+    for (int i = 0; i < sz(s) - 1; i++) {
+        if(s[i] != s[i + 1]) curr = 0;
+        curr++;
+        res = max(res, curr);
     }
     cel(res);
 }

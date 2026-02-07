@@ -6,14 +6,11 @@ using namespace std;
 #define rall(x) (x).rbegin(), (x).rend()
 #define sor(x) sort(all(x))
 #define rsor(x) sort(rall(x))
-#define vt vector
 #define fast_io ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
-#define cel(x) cout << x << '\n'
-#define cht(x) cout << x << ' '
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
-
+ 
 template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
 template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
 void dbg_out() { cerr << endl; }
@@ -29,35 +26,33 @@ const ll MOD = 1e9 + 7;
 const ll INF = 1e9;
 const ld EPS = 1e-9;
 
-class Solution {
-public:
-    //O(log(b))
-    long long power(long long a, long long b, long long mod) {
-        long long ans = 1;
-        while (b) {
-            if (b & 1LL)
-                ans = ans * a % mod;
-            a = a * a % mod;
-            b >>= 1;
-        }
-        return ans;
+long long powll(long long a, long long b, long long mod) {
+    long long res = 1;
+    while (b) {
+        if (b & 1) res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
     }
-    
-    // O(nlog(M)) => M = max(b,c)
-    vector<int> getGoodIndices(vector<vector<int>>& variables, int target) {
-        vector<int> ans;
-        for (int i = 0; i < variables.size(); i++)
-            if (power(power(variables[i][0], variables[i][1], 10), variables[i][2], variables[i][3]) == target) 
-                ans.push_back(i);
-        return ans;
+    return res;
+}
+
+int kthDigit(int a, int b, int k) {
+    long long mod = powll(10LL, k, LLONG_MAX);
+    long long n = powll(a, b, mod);
+    int res = 0;
+    while (k--) {
+        res = n % 10;
+        n /= 10;
     }
-};
-   
-int main()
-{
-    Solution sol;
-    vector<vector<int>> variables = {{10,2,6,2},{8,10,5,7}};
-    vector<int> result = sol.getGoodIndices(variables, 0);
-    // cel(sol.power(8,10));
+    return res;
+}
+
+int main () {
+    // cout << kthDigit(5,2,INT32_MAX) << endl;
+    int i32 = INT32_MAX;
+    ll i64 = INT64_MAX;
+    ld p = M_PI;
+    cout << LLONG_MAX - i64 << endl;
+    dbg(i32, i64, p);
     return 0;
 }

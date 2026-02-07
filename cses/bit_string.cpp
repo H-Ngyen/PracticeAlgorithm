@@ -51,7 +51,8 @@ ll binary_exponentiation(ll a, ll b){
 int main()
 {
     ll n; cin >> n;
-    // cel(binary_exponentiation(2LL, n));
-    cel(power(2LL, n));
+    cel(binary_exponentiation(2LL, n));
+    // cel(power(2LL, n));
+    // cout << (1LL << n)  << endl;
     return 0;
 }

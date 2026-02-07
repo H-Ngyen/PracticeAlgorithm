@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#pragma GCC optimize("unroll-loops,no-stack-protector")
+#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector")
+// #pragma GCC target("avx2,tune=native")
 #define sz(x) int((x).size())
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
@@ -40,22 +41,18 @@ void solve(){
     {
         ll n; cin >> n;
         ll sum = 0;
-        for (int i = 1; i <= sqrt(n); i++){
+        for (ll i = 1; 1LL * i * i <= n; i++){
             if(n % i == 0){
                 sum+=i;
                 if(i != n / i) sum += n/i;
             } 
         } 
-            
-        cel(sum);
+        cout << sum << endl;
     }
 }
 
 
-int main()
-{
+signed main() {
     fast_io;
     solve();
-
-    return 0;
 }

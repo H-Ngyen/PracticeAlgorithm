@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#pragma GCC optimize("unroll-loops,no-stack-protector")
+#pragma GCC optimize("Ofast,unroll-loops,no-stack-protector")
 #define sz(x) int((x).size())
 #define all(x) (x).begin(), (x).end()
 #define rall(x) (x).rbegin(), (x).rend()
@@ -24,20 +24,13 @@ template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr
 #define dbg(...)
 #endif
 
-const int MAX_N = 1e5 + 5;
-const ll MOD = 1e9 + 7;
-const ll INF = 1e9;
-const ld EPS = 1e-9;
-
 void sol(){
-    ll T; cin >> T;
-    while (T--)
-    {
-        vt<ll> v(9);
-        ll ans = 0;
+    int T; cin >> T;
+    while (T--) {
+        int ans = 0;
         for (int i = 0; i < 9; i++) {
-            cin >> v[i];
-            ans += v[i];
+            int x; cin >> x;
+            ans += x;
         }
         cel(55 - ans);
     }
