@@ -18,7 +18,7 @@ void solve() {
         for (int i = 1; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
                 int target = k - a[i] - a[j];
-                if(hm.count(target)) count += hm[target];
+                if(hm.contains(target)) count += hm[target];
             }
             hm[a[i]]++;
         }
