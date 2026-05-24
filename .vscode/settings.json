@@ -1,0 +1,3 @@
+{
+    "cph.language.cpp.Args": "-std=c++23 -O2 -Wall"
+}

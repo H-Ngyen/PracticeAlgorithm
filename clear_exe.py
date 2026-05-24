@@ -15,5 +15,5 @@ def clear_exe_files(root_dir):
     print(f"\nHoàn tất. Đã xóa {deleted_count} file .exe.")
 
 if __name__ == "__main__":
-    target_directory = r"D:\Workspace\algorithm"
+    target_directory = r"C:\Data\Workspace\algorithm"
     clear_exe_files(target_directory)
