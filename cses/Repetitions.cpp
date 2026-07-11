@@ -41,6 +41,16 @@ void solve(){
     cel(res);
 }
 
+void solve2() {
+    string s; cin >> s;
+    int currentMaxLongest = 1, maxLongest = 1;
+    for (int i = 0; i < (int)s.size() - 1; i++) {
+        if(s[i] == s[i + 1]) maxLongest = max(maxLongest, ++currentMaxLongest);
+        else currentMaxLongest = 1;
+    }
+    cout << maxLongest << endl;
+}
+
 int main()
 {
     fast_io;
